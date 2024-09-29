@@ -30,7 +30,7 @@ server:
       # Enable/Disable the middleware.
       enable: true
       # the limit size. can be b,kb,kib,mb,mib,gb,gib
-      body_limit: 5mb
+      body_limit: 20mb
     # set secure headers
     secure_headers:
       preset: github
@@ -109,9 +109,9 @@ mailer:
 # Database Configuration
 database:
   # Database connection URI
-  uri: {{ get_env(name="DATABASE_URL", default="postgres://loco:loco@localhost:5432/api_development") }}
+  uri: {{ get_env(name="DATABASE_URL", default="postgres://postgres:postgres@localhost:5432/postgres") }}
   # When enabled, the sql query will be logged.
-  enable_logging: false
+  enable_logging: true
   # Set the timeout duration when acquiring a connection.
   connect_timeout: {{ get_env(name="DB_CONNECT_TIMEOUT", default="500") }}
   # Set the idle duration before closing a connection.
@@ -119,7 +119,7 @@ database:
   # Minimum number of connections for a pool.
   min_connections: 1
   # Maximum number of connections for a pool.
-  max_connections: 1
+  max_connections: 10
   # Run migration up when application loaded
   auto_migrate: true
   # Truncate database when application loaded. This is a dangerous operation, make sure that you using this flag only on dev environments or test mode
@@ -139,6 +139,6 @@ auth:
   # JWT authentication
   jwt:
     # Secret key for token generation and verification
-    secret: bavS81PTniQHYHYmcAg2
+    secret: devs3cr3tD3VSECRET12
     # Token expiration time in seconds
     expiration: 604800 # 7 days

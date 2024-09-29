@@ -90,7 +90,7 @@ mailer:
 # Database Configuration
 database:
   # Database connection URI
-  uri: {{get_env(name="DATABASE_URL", default="postgres://loco:loco@localhost:5432/api_test")}}
+  uri: {{get_env(name="DATABASE_URL", default="postgres://postgres:postgres@localhost:5432/postgres")}}
   # When enabled, the sql query will be logged.
   enable_logging: false
   # Set the timeout duration when acquiring a connection.
@@ -100,7 +100,7 @@ database:
   # Minimum number of connections for a pool.
   min_connections: 1
   # Maximum number of connections for a pool.
-  max_connections: 1
+  max_connections: 10
   # Run migration up when application loaded
   auto_migrate: true
   # Truncate database when application loaded. This is a dangerous operation, make sure that you using this flag only on dev environments or test mode
@@ -120,7 +120,7 @@ auth:
   # JWT authentication
   jwt:
     # Secret key for token generation and verification
-    secret: IKYKiGBEGgPuAlE9bXzk
+    secret: T3STS3CR3Ttestsecret
     # Token expiration time in seconds
     expiration: 604800 # 7 days
 
