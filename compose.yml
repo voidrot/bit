@@ -13,6 +13,11 @@ services:
     restart: unless-stopped
     ports:
       - 6379:6379
-
+  mailer:
+    image: mailtutan/mailtutan:latest
+    restart: unless-stopped
+    ports:
+      - 1080:1080
+      - 1025:1025
 volumes:
   postgres-data:
