@@ -97,7 +97,7 @@ jobs:
         run: cargo install sea-orm-cli
       - name: Run cargo test
         run: cargo test --all-features --all
-        working-directory: ./examples/demo
+        working-directory: ./api
         env:
           LOCO_CI_MODE: 1
           VALKEY_URL: redis://localhost:${{job.services.redis.ports[6379]}}
