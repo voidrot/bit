@@ -1,0 +1,2 @@
+# bit
+Code snippets manager
