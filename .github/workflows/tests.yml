@@ -53,6 +53,8 @@ jobs:
           toolchain: ${{ env.RUST_TOOLCHAIN }}
       - name: Setup Rust cache
         uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: api -> target
       - name: Run cargo clippy
         run: cargo clippy -- -W clippy::nursery -W clippy::pedantic -W rust-2018-idioms -W rust-2021-compatibility
         working-directory: ./api
@@ -97,6 +99,8 @@ jobs:
           toolchain: ${{ env.RUST_TOOLCHAIN }}
       - name: Setup Rust cache
         uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: api -> target
       - name: Install seaorm cli
         run: cargo install sea-orm-cli
       - name: Run cargo test
