@@ -14,12 +14,7 @@ use loco_rs::{
 use migration::Migrator;
 use sea_orm::DatabaseConnection;
 
-use crate::{
-    controllers,
-    models::_entities::{users},
-    tasks,
-    workers::downloader::DownloadWorker,
-};
+use crate::{controllers, models::_entities::users, tasks, workers::downloader::DownloadWorker};
 
 pub struct App;
 #[async_trait]
