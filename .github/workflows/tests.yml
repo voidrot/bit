@@ -12,6 +12,10 @@ on:
     paths:
       - 'api/**'
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref }}
+  cancel-in-progress: ${{ !contains(github.ref, github.ref_name)}}
+
 env:
   RUST_TOOLCHAIN: stable
   TOOLCHAIN_PROFILE: minimal
